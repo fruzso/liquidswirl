@@ -5,3 +5,4 @@ fi
 
 source venv/bin/activate
 
+alias swirl="python3 app.py"

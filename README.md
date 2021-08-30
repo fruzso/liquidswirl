@@ -3,5 +3,6 @@ Sir Liquid, the swirly squid is about to take you to an intoxicating journey of 
 
 To start the app run: 
 ```
-source scripts/bashrc
+$ source scripts/bashrc
+$ swirl
 ```

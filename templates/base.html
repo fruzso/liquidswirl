@@ -4,12 +4,39 @@
     <title> Liquid Swirl </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for ('static', filename='stylesheets/base.css') }}">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    
     {% block head %}{% endblock %}
 </head>
 <body>
+    <ul id="nav_id">
+        <li><a id="nav_link_index" href="/"> Index </a></li>
+        <li><a id="nav_link_animation_squid" href="/animation_squid"> Sir Liquid </a></li>
+    </ul>
+    
     {% block body %}{% endblock %}
+
+    <script>
+        // detect the current page and apply the respective style to the navigation link
+        window.onload = visualize_current_page()
+
+        function visualize_current_page(){
+            current_path = window.location.pathname
+
+            switch (current_path) {
+                case '/':
+                    document.getElementById('nav_link_index').classList.add('current_page_link')
+                    break
+                case '/animation_squid':
+                    document.getElementById('nav_link_animation_squid').classList.add('current_page_link')
+                    break
+            }
+        }
+    </script>
 </body>
 </html>

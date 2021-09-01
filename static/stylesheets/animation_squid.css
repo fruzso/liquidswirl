@@ -1,0 +1,61 @@
+/* colors fru likes: */
+/* #00a4d6 */
+/* top get this from balck: */
+/* filter: invert(44%) sepia(72%) saturate(3379%) hue-rotate(166deg) brightness(101%) contrast(102%); */
+
+/* for filter copnverssion use::after
+https://codepen.io/sosuke/pen/Pjoqqp
+
+mustard color:
+#E1AD01
+
+
+grey:
+#717171 
+*/
+
+
+img {
+    width: 500px;
+    height: 500px;
+    margin: auto;
+}
+
+#sprite {
+    background-image: url("/static/images/squid_sprite_sheet.png");
+    width: 500px;
+    height: 500px;
+    margin: auto;
+    filter: invert(55%) sepia(99%) saturate(497%) hue-rotate(10deg) brightness(100%) contrast(99%);
+    transition: ease-in;
+}
+
+#ctrl {
+    width: 300px;
+    height: 100px;
+    margin: auto;
+}
+
+
+.animation_intro {
+    animation: squid_intro 2.7s steps(100) 1;
+    animation-direction: normal;
+}
+
+.animation_loop {
+    animation: squid_idle 1s steps(20) infinite !important;
+}
+
+.animation_outro {
+    animation: squid_intro 2s steps(100) 1 !important;
+    animation-direction: reverse !important;
+}
+
+@keyframes squid_intro {
+    to { background-position: -0 -50000px; }   
+}
+
+@keyframes squid_idle {
+    from { background-position: -0 -40000px; }   
+    to { background-position: -0 -50000px; }   
+}

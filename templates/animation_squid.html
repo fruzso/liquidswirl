@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='stylesheets/animation_squid.css') }}">
+        <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+        <title>Sandbox</title>
+
+    </head>
+
+    <body>
+        <!-- <img src="quid_2_play_once.gif" alt="squid swirl"> -->
+        <div id="sprite" class="animation_intro"></div>
+        <button id="ctrl">"Disappear!"</button>
+
+        <script>
+            // transition from intro to ide aimation on page load
+            console.log("script started")
+            let squid = document.getElementById("sprite")
+            squid.addEventListener("animationend", change_to_idle)
+
+            function change_to_idle(){
+                squid.classList.add("animation_loop")
+            }
+
+            // disappear on click
+            let ctrl_button = document.getElementById("ctrl")
+            ctrl_button.addEventListener("click", trigger_disappear_animation)
+
+            function trigger_disappear_animation(){
+                if (squid.classList.contains("animation_outro")) {
+                    squid.classList.remove("animation_outro")
+                    squid.classList.remove("animation_loop")
+                    squid.classList.add("animation_intro")
+                    ctrl_button.innerHTML = "Disappear!"
+
+                } else {
+                    squid.classList.remove("animation_loop")
+                    squid.classList.remove("animation_intro")
+                    squid.classList.add("animation_outro")
+                    ctrl_button.innerHTML = "Appear!"
+                }
+            }
+        </script>
+    </body>
+
+</html>

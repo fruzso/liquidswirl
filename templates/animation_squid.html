@@ -9,9 +9,9 @@
 {% block body %}
 
 <svg>
-    <filter id="filter_swirl_id" x='0%' y='0%' width='100%' height='100%'>
-        <feTurbulence baseFrequency="0.02 0.03" result="NOISE" numOctaves="1" id="turbulence"></feTurbulence>
-        <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20"></feDisplacementMap>
+    <filter id="filter_swirl_id" x='0%' y='0%' width='200%' height='200%'>
+        <feTurbulence baseFrequency="0.06 0.06" result="NOISE" numOctaves="2" id="turbulence"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="0" id="displacement_id"></feDisplacementMap>
     </filter>
 </svg>
 
@@ -56,7 +56,26 @@
     my_button.addEventListener('click', swirl_away)
 
     function swirl_away(){
-        my_button.classList.add('swirl_out')
+        my_button.style.filter = "url(#filter_swirl_id)"
+
+        let displacement_filter_elemenet = document.getElementById('displacement_id')
+        let scale_value = 0
+        let FPS = 30
+        let swirl_out_animation = setInterval(scale_animation, 1000/FPS)
+        let backgroun_opacity = 1
+
+
+        function scale_animation(){
+            scale_value = scale_value + 5
+            backgroun_opacity = backgroun_opacity - 0.03
+            displacement_filter_elemenet.setAttribute('scale', scale_value);
+            my_button.style.backgroundColor = 'rgba(225, 173, 1, ' + String(backgroun_opacity) + ')'
+
+            if (scale_value > 200) {
+            clearInterval(swirl_out_animation)
+            my_button.style.display = 'none'
+            }
+        }
     }
 </script>
 

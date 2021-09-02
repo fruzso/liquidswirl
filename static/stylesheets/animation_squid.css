@@ -14,6 +14,15 @@ grey:
 #717171 
 */
 
+button {
+    margin-left: auto;
+    margin-right: auto;
+    width: 200px;
+    height: 100px;
+    background-color: #E1AD01;
+    display: block;
+    border: none;
+}
 
 img {
     width: 500px;
@@ -28,6 +37,7 @@ img {
     margin: auto;
     filter: invert(55%) sepia(99%) saturate(497%) hue-rotate(10deg) brightness(100%) contrast(99%);
     transition: ease-in;
+    transform: scale(0.5);
 }
 
 #ctrl {
@@ -58,4 +68,8 @@ img {
 @keyframes squid_idle {
     from { background-position: -0 -40000px; }   
     to { background-position: -0 -50000px; }   
+}
+
+.swirl_out {
+   filter: url(#filter_swirl_id);
 }

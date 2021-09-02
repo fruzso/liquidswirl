@@ -8,9 +8,17 @@
 
 {% block body %}
 
+<svg>
+    <filter id="filter_swirl_id" x='0%' y='0%' width='100%' height='100%'>
+        <feTurbulence baseFrequency="0.02 0.03" result="NOISE" numOctaves="1" id="turbulence"></feTurbulence>
+        <feDisplacementMap in="SourceGraphic" in2="NOISE" scale="20"></feDisplacementMap>
+    </filter>
+</svg>
+
 <!-- <img src="quid_2_play_once.gif" alt="squid swirl"> -->
 <div id="sprite" class="animation_intro"></div>
 <button id="ctrl">"Disappear!"</button>
+
 
 <script>
     // transition from intro to ide aimation on page load
@@ -39,6 +47,16 @@
             squid.classList.add("animation_outro")
             ctrl_button.innerHTML = "Appear!"
         }
+    }
+</script>
+
+<script>
+    // Swirl effect for the button
+    let my_button = document.getElementById("ctrl")
+    my_button.addEventListener('click', swirl_away)
+
+    function swirl_away(){
+        my_button.classList.add('swirl_out')
     }
 </script>
 

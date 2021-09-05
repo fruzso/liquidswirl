@@ -14,12 +14,22 @@
     {% block head %}{% endblock %}
 </head>
 <body>
-    <ul id="nav_id">
-        <li><a id="nav_link_index" href="/"> Index </a></li>
-        <li><a id="nav_link_animation_squid" href="/animation_squid"> Sir Liquid </a></li>
-    </ul>
-    
-    {% block body %}{% endblock %}
+    <div>
+        <ul id="nav_id">
+            <li><a id="nav_link_index" href="/"> Index </a></li>
+            <li><a id="nav_link_animation_squid" href="/animation_squid"> Sir Liquid </a></li>
+        </ul>
+    </div>
+
+    <div>
+        {% block body %}{% endblock %}
+    </div>
+
+    <div>
+        <p>
+            This is the footer.
+        </p>
+    </div>
 
     <script>
         // detect the current page and apply the respective style to the navigation link

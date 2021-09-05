@@ -1,3 +1,14 @@
+:root {
+    --color_main: #E1AD01;
+}
+
 .current_page_link {
-    color: #E1AD01;
+    color: var(--color_main);
+}
+
+body {
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr;
+    grid-template-rows: 2fr minmax(3fr, auto) 1fr;
 }
